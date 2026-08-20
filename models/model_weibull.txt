@@ -1,0 +1,26 @@
+model
+{
+  for(i in 1:N){
+    lp.s12[i] <- inprod(mat12[i,], beta12[1:p12])
+    lp.s13[i] <- inprod(mat13[i,], beta13[1:p13])
+    lp.s23[i] <- inprod(mat23[i,], beta23[1:p23])
+    lp1[i] <- -lamb12*T1[i]^(nv12)*exp(lp.s12[i]) - lamb13*T1[i]^(nv13)*exp(lp.s13[i])
+    lp2[i] <- d2[i]*(1-d1[i])*(log(nv13)+log(lamb13)+(nv13-1)*log(T2[i])+lp.s13[i])
+    lp3[i] <- d1[i]*(log(nv12)+log(lamb12)+(nv12-1)*log(T1[i])+lp.s12[i]-lamb23*(T2[i]^nv23-T1[i]^nv23)*exp(lp.s23[i]))
+    lp4[i] <- d1[i]*d2[i]*(log(nv23)+log(lamb23)+(nv23-1)*log(T2[i])+lp.s23[i])
+    lik[i] <- exp(lp1[i]+lp2[i]+lp3[i]+lp4[i])/C
+    ones[i] ~ dbern(lik[i])
+  }
+  nv12 ~ dgamma(0.001, 0.001)
+  loglamb12 ~ dnorm(0, 0.01)
+  lamb12 <- exp(loglamb12)
+  nv13 ~ dgamma(0.001, 0.001)
+  loglamb13 ~ dnorm(0, 0.01)
+  lamb13 <- exp(loglamb13)
+  nv23 ~ dgamma(0.001, 0.001)
+  loglamb23 ~ dnorm(0, 0.01)
+  lamb23 <- exp(loglamb23)
+  for(j in 1:p12){ beta12[j] ~ dnorm(0, 0.01) }
+  for(j in 1:p13){ beta13[j] ~ dnorm(0, 0.01) }
+  for(j in 1:p23){ beta23[j] ~ dnorm(0, 0.01) }
+}
