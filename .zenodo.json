@@ -1,0 +1,19 @@
+{
+  "title": "StateMediation: Bayesian Multi-State Mediation Analysis of Radiation-Induced Lymphopenia and Survival After Chemoradiotherapy for Esophageal Cancer",
+  "description": "R/JAGS code for the Bayesian multi-state mediation model and all analyses reported in the manuscript.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Chen, Yiqing", "affiliation": "Texas A&M University"},
+    {"name": "Zhou, Jie"},
+    {"name": "Wei, Peng", "affiliation": "The University of Texas MD Anderson Cancer Center"},
+    {"name": "Liu, Qing"},
+    {"name": "Jiang, Xun"},
+    {"name": "Xia, Hong Amy"},
+    {"name": "Zhou, Junyi"},
+    {"name": "Lin, Steven H.", "affiliation": "The University of Texas MD Anderson Cancer Center"},
+    {"name": "Mohan, Radhe", "affiliation": "The University of Texas MD Anderson Cancer Center"},
+    {"name": "Hobbs, Brian P.", "affiliation": "Telperian"}
+  ],
+  "keywords": ["Bayesian analysis", "multi-state model", "mediation analysis", "radiation-induced lymphopenia", "esophageal cancer", "proton therapy"]
+}
